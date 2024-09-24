@@ -7,7 +7,7 @@ model_name=Transformer
 #  --root_path ./dataset/traffic/ \
 #  --data_path traffic.csv \
 #  --model_id traffic_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data custom \
 #  --features M \
 #  --seq_len 96 \
@@ -55,7 +55,7 @@ model_name=iTransformer
 #  --root_path ./dataset/traffic/ \
 #  --data_path traffic.csv \
 #  --model_id traffic_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data custom \
 #  --features M \
 #  --seq_len 96 \

@@ -7,7 +7,7 @@ model_name=Flowformer
 #  --root_path ./dataset/electricity/ \
 #  --data_path electricity.csv \
 #  --model_id ECL_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data custom \
 #  --features M \
 #  --seq_len 96 \
@@ -54,7 +54,7 @@ model_name=iFlowformer
 #  --root_path ./dataset/electricity/ \
 #  --data_path electricity.csv \
 #  --model_id ECL_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data custom \
 #  --features M \
 #  --seq_len 96 \

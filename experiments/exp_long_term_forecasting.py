@@ -176,7 +176,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
             adjust_learning_rate(model_optim, epoch + 1, self.args)
 
-            # get_cka(self.args, setting, self.model, train_loader, self.device, epoch)
+            # get_cka(self.args, setting, self.models, train_loader, self.device, epoch)
 
         best_model_path = path + '/' + 'checkpoint.pth'
         self.model.load_state_dict(torch.load(best_model_path))
@@ -186,7 +186,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
     def test(self, setting, test=0):
         test_data, test_loader = self._get_data(flag='test')
         if test:
-            print('loading model')
+            print('loading models')
             self.model.load_state_dict(torch.load(os.path.join('./checkpoints/' + setting, 'checkpoint.pth')))
 
         preds = []

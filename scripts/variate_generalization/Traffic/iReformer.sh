@@ -7,7 +7,7 @@ model_name=Reformer
 #  --root_path ./dataset/traffic/ \
 #  --data_path traffic.csv \
 #  --model_id traffic_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data custom \
 #  --features M \
 #  --seq_len 96 \
@@ -54,7 +54,7 @@ model_name=iReformer
 #  --root_path ./dataset/traffic/ \
 #  --data_path traffic.csv \
 #  --model_id traffic_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data custom \
 #  --features M \
 #  --seq_len 96 \

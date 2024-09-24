@@ -7,7 +7,7 @@ model_name=Informer
 #  --root_path ./dataset/Solar/ \
 #  --data_path solar_AL.txt \
 #  --model_id solar_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data Solar \
 #  --features M \
 #  --seq_len 96 \
@@ -56,7 +56,7 @@ model_name=iInformer
 #  --root_path ./dataset/Solar/ \
 #  --data_path solar_AL.txt \
 #  --model_id solar_96_96 \
-#  --model $model_name \
+#  --models $model_name \
 #  --data Solar \
 #  --features M \
 #  --seq_len 96 \

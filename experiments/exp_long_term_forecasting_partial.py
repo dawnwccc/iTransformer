@@ -144,13 +144,13 @@ class Exp_Long_Term_Forecast_Partial(Exp_Basic):
 
                 # Variate Generalization training: 
                 # We train with partial variates (args.enc_in < number of dataset variates)
-                # and test the obtained model directly on all variates.
+                # and test the obtained models directly on all variates.
                 partial_start = self.args.partial_start_index
                 partial_end = min(self.args.enc_in + partial_start, batch_x.shape[-1])
                 batch_x = batch_x[:, :, partial_start:partial_end]
                 batch_y = batch_y[:, :, partial_start:partial_end]
                 # Efficient training strategy: randomly choose part of the variates
-                # and only train the model with selected variates in each batch 
+                # and only train the models with selected variates in each batch
                 if self.args.efficient_training:
                     _, _, N = batch_x.shape
                     index = np.stack(random.sample(range(N), N))[-self.args.enc_in:]
@@ -240,7 +240,7 @@ class Exp_Long_Term_Forecast_Partial(Exp_Basic):
 
         test_data, test_loader = self._get_data(flag='test')
         if test:
-            print('loading model')
+            print('loading models')
             self.model.load_state_dict(torch.load(os.path.join('./checkpoints/' + setting, 'checkpoint.pth')))
 
         preds = []
@@ -252,7 +252,7 @@ class Exp_Long_Term_Forecast_Partial(Exp_Basic):
         self.model.eval()
         with torch.no_grad():
             for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(test_loader):
-                # During model inference, test the obtained model directly on all variates.
+                # During models inference, test the obtained models directly on all variates.
                 batch_x = batch_x.float().to(self.device)
                 batch_y = batch_y.float().to(self.device)
                 if 'PEMS' in self.args.data or 'Solar' in self.args.data:
@@ -289,7 +289,7 @@ class Exp_Long_Term_Forecast_Partial(Exp_Basic):
                                                  batch_y_mark.repeat(N, 1, 1)) \
                                 .reshape(B, N, -1).permute(0, 2, 1)
                     else:
-                        # directly test the trained model on all variates without fine-tuning.
+                        # directly test the trained models on all variates without fine-tuning.
                         outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
                 f_dim = -1 if self.args.features == 'MS' else 0
